@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>YouTube Clone</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+
+<header>
+    <h2>YouTube Clone</h2>
+</header>
+
+<div class="video-grid">
+    {% for video in videos %}
+    <div class="card">
+        <a href="/watch/{{ video.id }}">
+            <video src="{{ url_for('static', filename='videos/' + video.file) }}"></video>
+            <h3>{{ video.title }}</h3>
+        </a>
+    </div>
+    {% endfor %}
+</div>
+
+</body>
+</html>
